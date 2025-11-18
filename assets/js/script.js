@@ -1,7 +1,7 @@
-const box = document.querySelector(".searchbar");
+const box = document.querySelector(".search");
 const search = document.querySelector(".searchbar");
 
-search.addEventListener("click", function() {
+box.addEventListener("click", function() {
   document.getElementById("input-box").focus();
   document.getElementById("input-box").style.color = "#ffffffb2";
   document.getElementById("input-box").value = "Create ";
@@ -9,17 +9,18 @@ search.addEventListener("click", function() {
 
 
 box.addEventListener("click", () => {
-  box.classList.toggle("open");
+  search.classList.toggle("open");
 
-  if (box.classList.contains("open")) {
-    box.style.height = "297px";
+  if (search.classList.contains("open")) {
+    search.style.height = "297px";
   } else {
-    box.style.height = "120px";
+    search.style.height = "120px";
     document.getElementById("input-box").value = "";
   }
 });
 
 const profileDropdown = document.querySelector(".user-profile");
+
 profileDropdown.addEventListener("click", () => {
   const drop = document.querySelector(".profile-dropdown");
   const rotate = document.querySelector(".dropdown");
@@ -50,3 +51,16 @@ bottomSide.addEventListener("mouseover", () => {
 bottomSide.addEventListener("mouseout", () => {
   document.querySelector(".bottom-section-wrapper").style.transform = "translateY(75px)";
 });
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+      // Optional: stop observing after first reveal
+      observer.unobserve(entry.target);
+    }
+  });
+});
+
+document.querySelectorAll('.searchbar').forEach(el => observer.observe(el));
+document.querySelectorAll('.un').forEach(el => observer.observe(el));
