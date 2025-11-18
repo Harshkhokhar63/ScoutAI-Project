@@ -12,13 +12,24 @@ box.addEventListener("click", () => {
   box.classList.toggle("open");
 
   if (box.classList.contains("open")) {
-    box.style.height = "270px";
+    box.style.height = "297px";
   } else {
-    box.style.height = "110px";
+    box.style.height = "120px";
     document.getElementById("input-box").value = "";
   }
 });
 
+const profileDropdown = document.querySelector(".user-profile");
+profileDropdown.addEventListener("click", () => {
+  const drop = document.querySelector(".profile-dropdown");
+  const rotate = document.querySelector(".dropdown");
+  drop.classList.toggle("pd");
+  if (drop.classList.contains("pd")) {
+    rotate.style.rotate = "0deg";
+  } else {
+    rotate.style.rotate = "180deg";
+  }
+});
 
 
 const leftSide = document.querySelector(".left-section");
