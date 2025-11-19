@@ -13,6 +13,7 @@ box.addEventListener("click", () => {
 
   if (search.classList.contains("open")) {
     search.style.height = "297px";
+    search.style.transition = "height 0.35s ease";
   } else {
     search.style.height = "120px";
     document.getElementById("input-box").value = "";
