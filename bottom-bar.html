@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Scout AI</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      .searchbar {
+        transform: translate(-210px ,798px);
+        opacity: 0;
+        scale: 0.45;
+        transition: opacity 0.2s ease-out, transform 0.32s ease-out,
+          scale 0.362s ease-out;
+      }
+      .searchbar.search-visible {
+        opacity: 1;
+        scale: 1;
+        transform: translate(0px,0px);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header header-inner">
+        <div class="theme">
+          <div class="dark-mode">
+            <button class="moon-img">
+              <img src="assets/icons/iconamoon_mode-dark-light.svg" alt="" />
+            </button>
+          </div>
+          <div class="light-mode">
+            <button class="sun-img">
+              <img src="assets/icons/solar_sun-line-duotone.svg" alt="" />
+            </button>
+          </div>
+        </div>
+        <div class="user-profile">
+          <button class="user-img">
+            <img
+              class="user-img1"
+              src="assets/images/3807b83f49f5c91792a6d78ed8ada689f065456e.jpg"
+              alt=""
+            />
+            <img class="dropdown" src="assets/icons/Vector.svg" alt="" />
+          </button>
+        </div>
+        <div class="profile-dropdown pd">
+          <a class="user-details" href="#">
+            <img src="assets/icons/user-icon.svg" alt="" />
+            <div class="user-detail-text">User Details</div>
+          </a>
+          <a class="plan-upgrade" href="#">
+            <img src="assets/icons/crown.svg" alt="" />
+            <div class="plan-upgrade-text">Upgrade</div>
+          </a>
+          <div class="user-card-line"></div>
+          <div class="card-bottom">
+            <a class="card-settings" href="#">Settings</a>
+            <div class="bottom-line"></div>
+            <a class="card-logout" href="#">Log Out</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="mid-section">
+        <div class="searchbar">
+          <div class="user-input">
+            <div class="search">
+              <input
+                id="input-box"
+                type="text"
+                placeholder="Where should we begin?"
+              />
+            </div>
+            <div class="search-bar-tools">
+              <button class="cut-icon">
+                <div>
+                  <img src="assets/icons/scissor.svg" alt="" />
+                </div>
+              </button>
+              <div class="line"></div>
+              <button class="clip-icon">
+                <div>
+                  <img src="assets/icons/clip.svg" alt="" />
+                </div>
+              </button>
+              <div class="line"></div>
+              <button class="mic-icon">
+                <div>
+                  <img src="assets/icons/mic.svg" alt="" />
+                </div>
+              </button>
+              <div class="line"></div>
+              <button class="send-icon">
+                <div>
+                  <img src="assets/icons/send.svg" alt="" />
+                </div>
+              </button>
+            </div>
+          </div>
+          <div class="suggestions">
+            <div class="seperate-line"></div>
+            <div class="searches-wrapper">
+              <div class="searches">
+                <img src="assets/icons/search.svg" alt="" />
+                <div class="text">Create <span>gmail account</span></div>
+              </div>
+              <div class="searches">
+                <img src="assets/icons/search.svg" alt="" />
+                <div class="text">Create <span>new gmail account</span></div>
+              </div>
+              <div class="searches">
+                <img src="assets/icons/search.svg" alt="" />
+                <div class="text">Create <span>apple id</span></div>
+              </div>
+              <div class="searches">
+                <img src="assets/icons/search.svg" alt="" />
+                <div class="text">Create <span>QR code</span></div>
+              </div>
+              <div class="searches">
+                <img src="assets/icons/search.svg" alt="" />
+                <div class="text">Create <span>google account</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bottom-section">
+        <div class="bottom-section-wrapper">
+          <div class="bottom-icons bottom-input">
+            <img src="assets/icons/search.svg" alt="" />
+            <input type="text" placeholder="Search" />
+          </div>
+          <button class="bottom-icons">
+            <img src="assets/icons/file.svg" alt="" />
+          </button>
+          <button class="bottom-icons">
+            <img src="assets/icons/outlook.svg" alt="" />
+          </button>
+          <button class="bottom-icons">
+            <img src="assets/icons/more.svg" alt="" />
+          </button>
+        </div>
+      </div>
+    </div>
+    <script>
+      const box = document.querySelector(".search");
+      const search = document.querySelector(".searchbar");
+
+      box.addEventListener("click", function () {
+        document.getElementById("input-box").focus();
+        document.getElementById("input-box").style.color = "#ffffffb2";
+      });
+
+      box.addEventListener("click", () => {
+        search.classList.toggle("open");
+
+        if (search.classList.contains("open")) {
+          search.style.height = "297px";
+          search.style.transition = "height 0.35s ease";
+        } else {
+          search.style.height = "120px";
+        }
+      });
+
+      const profileDropdown = document.querySelector(".user-profile");
+
+      profileDropdown.addEventListener("click", () => {
+        const drop = document.querySelector(".profile-dropdown");
+        const rotate = document.querySelector(".dropdown");
+        drop.classList.toggle("pd");
+        if (drop.classList.contains("pd")) {
+          rotate.style.rotate = "0deg";
+        } else {
+          rotate.style.rotate = "180deg";
+        }
+      });
+
+      const searchZoom = document.querySelector(".bottom-input");
+
+      searchZoom.addEventListener("click", () => {
+        document.querySelector(".bottom-section-wrapper").style.display =
+          "none";
+        document.querySelector(".searchbar").classList.add("search-visible");
+      });
+
+      const bottomSide = document.querySelector(".bottom-section");
+
+      bottomSide.addEventListener("mouseover", () => {
+        document.querySelector(".bottom-section-wrapper").style.transform =
+          "translateY(-75px)";
+      });
+      bottomSide.addEventListener("mouseout", () => {
+        document.querySelector(".bottom-section-wrapper").style.transform =
+          "translateY(75px)";
+      });
+    </script>
+  </body>
+</html>
