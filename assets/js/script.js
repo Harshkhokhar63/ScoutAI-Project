@@ -4,7 +4,6 @@ const search = document.querySelector(".searchbar");
 box.addEventListener("click", function() {
   document.getElementById("input-box").focus();
   document.getElementById("input-box").style.color = "#ffffffb2";
-  document.getElementById("input-box").value = "Create ";
 });
 
 
@@ -16,7 +15,6 @@ box.addEventListener("click", () => {
     search.style.transition = "height 0.35s ease";
   } else {
     search.style.height = "120px";
-    document.getElementById("input-box").value = "";
   }
 });
 
