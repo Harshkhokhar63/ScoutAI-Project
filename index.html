@@ -11,25 +11,10 @@
       href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
       rel="stylesheet"
     />
-
-    <style>
-      .searchbar {
-        transform: translate(-210px ,798px);
-        opacity: 0;
-        scale: 0.45;
-        transition: opacity 0.2s ease-out, transform 0.32s ease-out,
-          display 0s ease-out, scale 0.362s ease-out;
-      }
-      .searchbar.search-visible {
-        opacity: 1;
-        scale: 1;
-        transform: translate(0px,0px);
-      }
-    </style>
   </head>
   <body>
     <div class="container">
-      <div class="header header-inner">
+      <div class="header">
         <div class="theme">
           <div class="dark-mode">
             <button class="moon-img">
@@ -71,6 +56,8 @@
       </div>
 
       <div class="mid-section">
+        <div class="user-name un">Hello James</div>
+        <div class="welcome un">Welcome to Scout AI</div>
         <div class="searchbar">
           <div class="user-input">
             <div class="search">
@@ -134,75 +121,31 @@
         </div>
       </div>
 
-      <div class="bottom-section">
-        <div class="bottom-section-wrapper">
-          <div class="bottom-icons bottom-input">
-            <img src="assets/icons/search.svg" alt="" />
-            <input type="text" placeholder="Search" />
-          </div>
-          <button class="bottom-icons">
-            <img src="assets/icons/file.svg" alt="" />
+      <div class="left-section">
+        <div class="left-section-wrapper">
+          <button class="side-icons">
+            <img src="assets/icons/pc.svg" alt="" />
           </button>
-          <button class="bottom-icons">
-            <img src="assets/icons/outlook.svg" alt="" />
+          <button class="side-icons">
+            <img src="assets/icons/bin.svg" alt="" />
           </button>
-          <button class="bottom-icons">
-            <img src="assets/icons/more.svg" alt="" />
+          <div class="left-section-line">.</div>
+          <button class="side-icons">
+            <img src="assets/icons/user.svg" alt="" />
+          </button>
+          <button class="side-icons">
+            <img src="assets/icons/stats.svg" alt="" />
+          </button>
+          <button class="side-icons">
+            <img src="assets/icons/data.svg" alt="" />
+          </button>
+          <button class="side-icons">
+            <img src="assets/icons/pdffile.svg" alt="" />
           </button>
         </div>
       </div>
     </div>
-    <script>
-      const box = document.querySelector(".search");
-      const search = document.querySelector(".searchbar");
 
-      box.addEventListener("click", function () {
-        document.getElementById("input-box").focus();
-        document.getElementById("input-box").style.color = "#ffffffb2";
-      });
-
-      box.addEventListener("click", () => {
-        search.classList.toggle("open");
-
-        if (search.classList.contains("open")) {
-          search.style.height = "297px";
-          search.style.transition = "height 0.35s ease";
-        } else {
-          search.style.height = "120px";
-        }
-      });
-
-      const profileDropdown = document.querySelector(".user-profile");
-
-      profileDropdown.addEventListener("click", () => {
-        const drop = document.querySelector(".profile-dropdown");
-        const rotate = document.querySelector(".dropdown");
-        drop.classList.toggle("pd");
-        if (drop.classList.contains("pd")) {
-          rotate.style.rotate = "0deg";
-        } else {
-          rotate.style.rotate = "180deg";
-        }
-      });
-
-      const searchZoom = document.querySelector(".bottom-input");
-
-      searchZoom.addEventListener("click", () => {
-        document.querySelector(".bottom-section-wrapper").style.display =
-          "none";
-        document.querySelector(".searchbar").classList.add("search-visible");
-      });
-
-      const bottomSide = document.querySelector(".bottom-section");
-
-      bottomSide.addEventListener("mouseover", () => {
-        document.querySelector(".bottom-section-wrapper").style.transform =
-          "translateY(-75px)";
-      });
-      bottomSide.addEventListener("mouseout", () => {
-        document.querySelector(".bottom-section-wrapper").style.transform =
-          "translateY(75px)";
-      });
-    </script>
+    <script src="assets/js/script.js"></script>
   </body>
 </html>
