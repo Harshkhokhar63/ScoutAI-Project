@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Scout AI</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header header-inner">
+        <div class="theme">
+          <div class="dark-mode">
+            <button class="moon-img">
+              <img src="assets/icons/iconamoon_mode-dark-light.svg" alt="" />
+            </button>
+          </div>
+          <div class="light-mode">
+            <button class="sun-img">
+              <img src="assets/icons/solar_sun-line-duotone.svg" alt="" />
+            </button>
+          </div>
+        </div>
+        <div class="user-profile">
+          <button class="user-img">
+            <img
+              class="user-img1"
+              src="assets/images/3807b83f49f5c91792a6d78ed8ada689f065456e.jpg"
+              alt=""
+            />
+            <img class="dropdown" src="assets/icons/Vector.svg" alt="" />
+          </button>
+        </div>
+        <div class="profile-dropdown pd">
+          <a class="user-details" href="#">
+            <img src="assets/icons/user-icon.svg" alt="" />
+            <div class="user-detail-text">User Details</div>
+          </a>
+          <a class="plan-upgrade" href="#">
+            <img src="assets/icons/crown.svg" alt="" />
+            <div class="plan-upgrade-text">Upgrade</div>
+          </a>
+          <div class="user-card-line"></div>
+          <div class="card-bottom">
+            <a class="card-settings" href="#">Settings</a>
+            <div class="bottom-line"></div>
+            <a class="card-logout" href="#">Log Out</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="bottom-section">
+        <div class="bottom-section-wrapper">
+          <div class="bottom-icons bottom-input">
+            <img src="assets/icons/search.svg" alt="" />
+            <input type="text" placeholder="Search" />
+          </div>
+          <button class="bottom-icons">
+            <img src="assets/icons/file.svg" alt="" />
+          </button>
+          <button class="bottom-icons">
+            <img src="assets/icons/outlook.svg" alt="" />
+          </button>
+          <button class="bottom-icons">
+            <img src="assets/icons/more.svg" alt="" />
+          </button>
+        </div>
+      </div>
+    </div>
+    <script>
+      const profileDropdown = document.querySelector(".user-profile");
+
+      profileDropdown.addEventListener("click", () => {
+        const drop = document.querySelector(".profile-dropdown");
+        const rotate = document.querySelector(".dropdown");
+        drop.classList.toggle("pd");
+        if (drop.classList.contains("pd")) {
+          rotate.style.rotate = "0deg";
+        } else {
+          rotate.style.rotate = "180deg";
+        }
+      });
+
+      const bottomSide = document.querySelector(".bottom-section");
+
+      bottomSide.addEventListener("mouseover", () => {
+        document.querySelector(".bottom-section-wrapper").style.transform =
+          "translateY(-75px)";
+      });
+      bottomSide.addEventListener("mouseout", () => {
+        document.querySelector(".bottom-section-wrapper").style.transform =
+          "translateY(75px)";
+      });
+    </script>
+  </body>
+</html>

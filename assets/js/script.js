@@ -44,20 +44,11 @@ leftSide.addEventListener("mouseout", () => {
 });
 
 
-const bottomSide = document.querySelector(".bottom-section");
-
-bottomSide.addEventListener("mouseover", () => {
-  document.querySelector(".bottom-section-wrapper").style.transform = "translateY(-75px)";
-});
-bottomSide.addEventListener("mouseout", () => {
-  document.querySelector(".bottom-section-wrapper").style.transform = "translateY(75px)";
-});
 
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.classList.add("visible");
-      // Optional: stop observing after first reveal
       observer.unobserve(entry.target);
     }
   });

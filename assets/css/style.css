@@ -17,6 +17,8 @@ body {
 }
 .theme {
   margin: auto;
+  margin-top: 0px;
+  margin-bottom: 0px;
   width: 80px;
   height: 42px;
   border-radius: 82px;
@@ -50,7 +52,15 @@ button {
 .header {
   display: flex;
   position: relative;
+  align-items: center;
   top: 40px;
+}
+.header-inner{
+  top: 0px;
+  background: #00000066;
+  height: 58px;
+  display: flex;
+  align-items: center;
 }
 .user-img {
   border-radius: 50px;
