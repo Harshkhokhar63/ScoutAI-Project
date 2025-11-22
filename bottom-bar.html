@@ -17,13 +17,17 @@
         transform: translate(-210px, 798px);
         opacity: 0;
         scale: 0.45;
+        margin-top: 0px;
       }
       .searchbar.search-visible {
         opacity: 1;
         scale: 1;
         transform: translate(0, 0);
       }
-      .mid-section-background{
+      .mid-section{
+        top: 182.5px;
+      }
+      .mid-section-background {
         height: calc(100vh - 58px);
         top: 58px;
         position: fixed;
@@ -31,7 +35,7 @@
         background-color: rgba(0, 0, 0, 0);
         transition: background-color 0.3s ease;
       }
-      .profile-dropdown{
+      .profile-dropdown {
         top: 50px;
       }
       .mid-section-background.back-layer {
@@ -180,8 +184,6 @@
         inputBox.style.color = "#ffffff";
       });
 
-      
-
       const profileDropdown = document.querySelector(".user-profile");
       const drop = document.querySelector(".profile-dropdown");
       const rotate = document.querySelector(".dropdown");
@@ -200,7 +202,8 @@
       const bottomWrapper = document.querySelector(".bottom-section-wrapper");
 
       searchZoom.addEventListener("click", () => {
-        search.style.transition = "opacity 0.2s ease-out, transform 0.32s ease-out, scale 0.362s ease-out";
+        search.style.transition =
+          "opacity 0.2s ease-out, transform 0.32s ease-out, scale 0.362s ease-out";
         bottomWrapper.style.display = "none";
         search.classList.add("search-visible");
         outerClick.classList.add("back-layer");
@@ -209,15 +212,15 @@
         search.style.height = "297px";
       });
 
-
-      outerClick.addEventListener("click",(e)=>{
-        if(e.target === outerClick){
-          search.style.transition = "opacity 0.2s ease-out, transform 0.32s ease-out, scale 0.362s ease-out";
-          bottomWrapper.style.display = "flex";
-          search.classList.remove("search-visible");
-          outerClick.classList.remove("back-layer");
-        }
-      })
+        outerClick.addEventListener("click", (e) => {
+          if (e.target === outerClick) {
+            search.style.transition =
+              "opacity 0.2s ease-out, transform 0.32s ease-out, scale 0.362s ease-out";
+            bottomWrapper.style.display = "flex";
+            search.classList.remove("search-visible");
+            outerClick.classList.remove("back-layer");
+          }
+        });
 
       box.addEventListener("click", () => {
         search.classList.toggle("open");

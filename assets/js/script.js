@@ -53,11 +53,14 @@ const observer = new IntersectionObserver((entries) => {
 document.querySelectorAll(".searchbar").forEach((el) => observer.observe(el));
 document.querySelectorAll(".un").forEach((el) => observer.observe(el));
 
-const outerClick = document.querySelector(".mid-section-background");
+const msb = document.querySelectorAll(".msb");
 
-outerClick.addEventListener("click", (e) => {
-  if (e.target === outerClick) {
-    search.classList.remove("open");
-    search.style.height = "120px";
-  }
+msb.forEach(ele =>{
+  ele.addEventListener("click", (e) => {
+    if (e.target === ele) {
+      search.classList.remove("open");
+      search.style.height = "120px";
+    }
+  });
 });
+
