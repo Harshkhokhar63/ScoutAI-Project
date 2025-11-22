@@ -90,8 +90,8 @@
         </div>
       </div>
 
-      <div class="mid-section-background">
-        <div class="mid-section">
+      <div class="mid-section-background msb">
+        <div class="mid-section msb">
           <div class="searchbar">
             <div class="user-input">
               <div class="search">
@@ -199,6 +199,7 @@
 
       const searchZoom = document.querySelector(".bottom-input");
       const outerClick = document.querySelector(".mid-section-background");
+      const msb = document.querySelectorAll(".msb");
       const bottomWrapper = document.querySelector(".bottom-section-wrapper");
 
       searchZoom.addEventListener("click", () => {
@@ -212,17 +213,19 @@
         search.style.height = "297px";
       });
 
-        outerClick.addEventListener("click", (e) => {
-          if (e.target === outerClick) {
-            search.style.transition =
-              "opacity 0.2s ease-out, transform 0.32s ease-out, scale 0.362s ease-out";
-            bottomWrapper.style.display = "flex";
-            search.classList.remove("search-visible");
-            outerClick.classList.remove("back-layer");
-            rotate.style.rotate = "0deg";
-            drop.classList.add("pd");
-          }
-        });
+        msb.forEach(ele => {
+          ele.addEventListener("click", (e) => {
+            if (e.target === ele) {
+              search.style.transition =
+                "opacity 0.2s ease-out, transform 0.32s ease-out, scale 0.362s ease-out";
+              bottomWrapper.style.display = "flex";
+              search.classList.remove("search-visible");
+              outerClick.classList.remove("back-layer");
+              rotate.style.rotate = "0deg";
+              drop.classList.add("pd");
+            }
+          });
+        })
 
       box.addEventListener("click", () => {
         search.classList.toggle("open");
