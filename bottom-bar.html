@@ -180,15 +180,7 @@
         inputBox.style.color = "#ffffff";
       });
 
-      box.addEventListener("click", () => {
-        search.classList.toggle("open");
-        if (search.classList.contains("open")) {
-          search.style.height = "297px";
-          search.style.transition = "height 0.35s ease";
-        } else {
-          search.style.height = "120px";
-        }
-      });
+      
 
       const profileDropdown = document.querySelector(".user-profile");
       const drop = document.querySelector(".profile-dropdown");
@@ -213,6 +205,8 @@
         search.classList.add("search-visible");
         outerClick.classList.add("back-layer");
         inputBox.focus();
+        search.classList.add("open");
+        search.style.height = "297px";
       });
 
 
@@ -222,11 +216,19 @@
           bottomWrapper.style.display = "flex";
           search.classList.remove("search-visible");
           outerClick.classList.remove("back-layer");
-          search.classList.remove("open");
-          search.style.height = "120px";
         }
       })
 
+      box.addEventListener("click", () => {
+        search.classList.toggle("open");
+        if (search.classList.contains("open")) {
+          search.style.height = "297px";
+          search.style.transition = "height 0.35s ease";
+        } else {
+          search.style.height = "120px";
+          search.style.transition = "height 0.35s ease";
+        }
+      });
 
       const bottomSide = document.querySelector(".bottom-section");
 
