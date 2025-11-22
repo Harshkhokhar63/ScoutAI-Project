@@ -104,6 +104,42 @@ button {
 .pd {
   display: none;
 }
+.outer-bg .outer-mid-section .inner-mid-section .inner-searchbar {
+  transform: translate(-210px, 820px);
+  opacity: 0;
+  scale: 0.45;
+  margin-top: 0px;
+}
+.outer-bg
+  .outer-mid-section
+  .inner-mid-section
+  .inner-searchbar.search-visible {
+  opacity: 1;
+  scale: 1;
+  transform: translate(0, 0);
+  margin-top: 0px;
+}
+.outer-bg .outer-mid-section .mid-section {
+  top: 182.5px;
+}
+.outer-bg .outer-mid-section {
+  height: calc(100vh - 58px);
+  top: 58px;
+  position: fixed;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0);
+  transition: background-color 0.3s ease;
+}
+.profile-dropdown-bottom {
+  top: 50px;
+}
+.outer-bg .outer-mid-section.back-layer {
+  background-color: rgba(0, 0, 0, 0.5);
+  height: calc(100vh - 58px);
+  top: 58px;
+  position: fixed;
+  width: 100vw;
+}
 .user-details {
   display: flex;
   align-items: center;
