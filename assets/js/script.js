@@ -18,10 +18,10 @@ box.addEventListener("click", () => {
 });
 
 const profileDropdown = document.querySelector(".user-profile");
+const drop = document.querySelector(".profile-dropdown");
+const rotate = document.querySelector(".dropdown");
 
 profileDropdown.addEventListener("click", () => {
-  const drop = document.querySelector(".profile-dropdown");
-  const rotate = document.querySelector(".dropdown");
   drop.classList.toggle("pd");
   if (drop.classList.contains("pd")) {
     rotate.style.rotate = "0deg";
@@ -60,6 +60,8 @@ msb.forEach(ele =>{
     if (e.target === ele) {
       search.classList.remove("open");
       search.style.height = "120px";
+      rotate.style.rotate = "0deg";
+      drop.classList.add("pd");
     }
   });
 });
