@@ -14,16 +14,32 @@
 
     <style>
       .searchbar {
-        transform: translate(-210px ,798px);
+        transform: translate(-210px, 798px);
         opacity: 0;
         scale: 0.45;
-        transition: opacity 0.2s ease-out, transform 0.32s ease-out,
-          scale 0.362s ease-out;
       }
       .searchbar.search-visible {
         opacity: 1;
         scale: 1;
-        transform: translate(0px,0px);
+        transform: translate(0, 0);
+      }
+      .mid-section-background{
+        height: calc(100vh - 58px);
+        top: 58px;
+        position: fixed;
+        width: 100vw;
+        background-color: rgba(0, 0, 0, 0);
+        transition: background-color 0.3s ease;
+      }
+      .profile-dropdown{
+        top: 50px;
+      }
+      .mid-section-background.back-layer {
+        background-color: rgba(0, 0, 0, 0.5);
+        height: calc(100vh - 58px);
+        top: 58px;
+        position: fixed;
+        width: 100vw;
       }
     </style>
   </head>
@@ -70,64 +86,66 @@
         </div>
       </div>
 
-      <div class="mid-section">
-        <div class="searchbar">
-          <div class="user-input">
-            <div class="search">
-              <input
-                id="input-box"
-                type="text"
-                placeholder="Where should we begin?"
-              />
+      <div class="mid-section-background">
+        <div class="mid-section">
+          <div class="searchbar">
+            <div class="user-input">
+              <div class="search">
+                <input
+                  id="input-box"
+                  type="text"
+                  placeholder="Where should we begin?"
+                />
+              </div>
+              <div class="search-bar-tools">
+                <button class="cut-icon">
+                  <div>
+                    <img src="assets/icons/scissor.svg" alt="" />
+                  </div>
+                </button>
+                <div class="line"></div>
+                <button class="clip-icon">
+                  <div>
+                    <img src="assets/icons/clip.svg" alt="" />
+                  </div>
+                </button>
+                <div class="line"></div>
+                <button class="mic-icon">
+                  <div>
+                    <img src="assets/icons/mic.svg" alt="" />
+                  </div>
+                </button>
+                <div class="line"></div>
+                <button class="send-icon">
+                  <div>
+                    <img src="assets/icons/send.svg" alt="" />
+                  </div>
+                </button>
+              </div>
             </div>
-            <div class="search-bar-tools">
-              <button class="cut-icon">
-                <div>
-                  <img src="assets/icons/scissor.svg" alt="" />
+            <div class="suggestions">
+              <div class="seperate-line"></div>
+              <div class="searches-wrapper">
+                <div class="searches">
+                  <img src="assets/icons/search.svg" alt="" />
+                  <div class="text">Create <span>gmail account</span></div>
                 </div>
-              </button>
-              <div class="line"></div>
-              <button class="clip-icon">
-                <div>
-                  <img src="assets/icons/clip.svg" alt="" />
+                <div class="searches">
+                  <img src="assets/icons/search.svg" alt="" />
+                  <div class="text">Create <span>new gmail account</span></div>
                 </div>
-              </button>
-              <div class="line"></div>
-              <button class="mic-icon">
-                <div>
-                  <img src="assets/icons/mic.svg" alt="" />
+                <div class="searches">
+                  <img src="assets/icons/search.svg" alt="" />
+                  <div class="text">Create <span>apple id</span></div>
                 </div>
-              </button>
-              <div class="line"></div>
-              <button class="send-icon">
-                <div>
-                  <img src="assets/icons/send.svg" alt="" />
+                <div class="searches">
+                  <img src="assets/icons/search.svg" alt="" />
+                  <div class="text">Create <span>QR code</span></div>
                 </div>
-              </button>
-            </div>
-          </div>
-          <div class="suggestions">
-            <div class="seperate-line"></div>
-            <div class="searches-wrapper">
-              <div class="searches">
-                <img src="assets/icons/search.svg" alt="" />
-                <div class="text">Create <span>gmail account</span></div>
-              </div>
-              <div class="searches">
-                <img src="assets/icons/search.svg" alt="" />
-                <div class="text">Create <span>new gmail account</span></div>
-              </div>
-              <div class="searches">
-                <img src="assets/icons/search.svg" alt="" />
-                <div class="text">Create <span>apple id</span></div>
-              </div>
-              <div class="searches">
-                <img src="assets/icons/search.svg" alt="" />
-                <div class="text">Create <span>QR code</span></div>
-              </div>
-              <div class="searches">
-                <img src="assets/icons/search.svg" alt="" />
-                <div class="text">Create <span>google account</span></div>
+                <div class="searches">
+                  <img src="assets/icons/search.svg" alt="" />
+                  <div class="text">Create <span>google account</span></div>
+                </div>
               </div>
             </div>
           </div>
@@ -155,15 +173,15 @@
     <script>
       const box = document.querySelector(".search");
       const search = document.querySelector(".searchbar");
+      const inputBox = document.getElementById("input-box");
 
       box.addEventListener("click", function () {
-        document.getElementById("input-box").focus();
-        document.getElementById("input-box").style.color = "#ffffffb2";
+        inputBox.focus();
+        inputBox.style.color = "#ffffff";
       });
 
       box.addEventListener("click", () => {
         search.classList.toggle("open");
-
         if (search.classList.contains("open")) {
           search.style.height = "297px";
           search.style.transition = "height 0.35s ease";
@@ -173,10 +191,10 @@
       });
 
       const profileDropdown = document.querySelector(".user-profile");
+      const drop = document.querySelector(".profile-dropdown");
+      const rotate = document.querySelector(".dropdown");
 
       profileDropdown.addEventListener("click", () => {
-        const drop = document.querySelector(".profile-dropdown");
-        const rotate = document.querySelector(".dropdown");
         drop.classList.toggle("pd");
         if (drop.classList.contains("pd")) {
           rotate.style.rotate = "0deg";
@@ -186,22 +204,37 @@
       });
 
       const searchZoom = document.querySelector(".bottom-input");
+      const outerClick = document.querySelector(".mid-section-background");
+      const bottomWrapper = document.querySelector(".bottom-section-wrapper");
 
       searchZoom.addEventListener("click", () => {
-        document.querySelector(".bottom-section-wrapper").style.display =
-          "none";
-        document.querySelector(".searchbar").classList.add("search-visible");
+        search.style.transition = "opacity 0.2s ease-out, transform 0.32s ease-out, scale 0.362s ease-out";
+        bottomWrapper.style.display = "none";
+        search.classList.add("search-visible");
+        outerClick.classList.add("back-layer");
+        inputBox.focus();
       });
+
+
+      outerClick.addEventListener("click",(e)=>{
+        if(e.target === outerClick){
+          search.style.transition = "opacity 0.2s ease-out, transform 0.32s ease-out, scale 0.362s ease-out";
+          bottomWrapper.style.display = "flex";
+          search.classList.remove("search-visible");
+          outerClick.classList.remove("back-layer");
+          search.classList.remove("open");
+          search.style.height = "120px";
+        }
+      })
+
 
       const bottomSide = document.querySelector(".bottom-section");
 
       bottomSide.addEventListener("mouseover", () => {
-        document.querySelector(".bottom-section-wrapper").style.transform =
-          "translateY(-75px)";
+        bottomWrapper.style.transform = "translateY(-75px)";
       });
       bottomSide.addEventListener("mouseout", () => {
-        document.querySelector(".bottom-section-wrapper").style.transform =
-          "translateY(75px)";
+        bottomWrapper.style.transform = "translateY(75px)";
       });
     </script>
   </body>

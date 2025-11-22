@@ -1,11 +1,10 @@
 const box = document.querySelector(".search");
 const search = document.querySelector(".searchbar");
 
-box.addEventListener("click", function() {
+box.addEventListener("click", function () {
   document.getElementById("input-box").focus();
-  document.getElementById("input-box").style.color = "#ffffffb2";
+  document.getElementById("input-box").style.color = "#ffffff";
 });
-
 
 box.addEventListener("click", () => {
   search.classList.toggle("open");
@@ -31,20 +30,19 @@ profileDropdown.addEventListener("click", () => {
   }
 });
 
-
 const leftSide = document.querySelector(".left-section");
 
 leftSide.addEventListener("mouseover", () => {
-  document.querySelector(".left-section-wrapper").style.transform = "translateX(75px)";
+  document.querySelector(".left-section-wrapper").style.transform =
+    "translateX(75px)";
 });
 leftSide.addEventListener("mouseout", () => {
-  document.querySelector(".left-section-wrapper").style.transform = "translateX(-75px)";
+  document.querySelector(".left-section-wrapper").style.transform =
+    "translateX(-75px)";
 });
 
-
-
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
     if (entry.isIntersecting) {
       entry.target.classList.add("visible");
       observer.unobserve(entry.target);
@@ -52,5 +50,14 @@ const observer = new IntersectionObserver(entries => {
   });
 });
 
-document.querySelectorAll('.searchbar').forEach(el => observer.observe(el));
-document.querySelectorAll('.un').forEach(el => observer.observe(el));
+document.querySelectorAll(".searchbar").forEach((el) => observer.observe(el));
+document.querySelectorAll(".un").forEach((el) => observer.observe(el));
+
+const outerClick = document.querySelector(".mid-section-background");
+
+outerClick.addEventListener("click", (e) => {
+  if (e.target === outerClick) {
+    search.classList.remove("open");
+    search.style.height = "120px";
+  }
+});
