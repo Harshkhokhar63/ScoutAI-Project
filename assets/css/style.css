@@ -120,7 +120,8 @@ button {
   margin-top: 0px;
 }
 .outer-bg .outer-mid-section {
-  height: 100vh;
+  height: calc(100vh - 58px);
+  top: 58px;
   position: fixed;
   width: 100vw;
   background-color: rgba(0, 0, 0, 0);
