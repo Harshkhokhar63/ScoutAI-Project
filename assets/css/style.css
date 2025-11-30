@@ -126,12 +126,16 @@ button {
   background-color: rgba(0, 0, 0, 0);
   transition: background-color 0.3s ease;
 }
+.outer-bg .outer-mid-section .inner-mid-section{
+  top: -58px;
+}
 .profile-dropdown-bottom {
   top: 50px;
 }
 .outer-bg .outer-mid-section.back-layer {
   background-color: rgba(0, 0, 0, 0.5);
-  height: 100vh;
+  height: calc(100vh - 58px);
+  top: 58px;
   position: fixed;
   width: 100vw;
 }
