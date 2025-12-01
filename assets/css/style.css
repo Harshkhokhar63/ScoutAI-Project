@@ -128,7 +128,7 @@ button {
   transition: background-color 0.3s ease;
 }
 .outer-bg .outer-mid-section .inner-mid-section{
-  top: -58px;
+  top: -18vh;
 }
 .profile-dropdown-bottom {
   top: 50px;
